@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+    <title>Waffle | {{title}}</title>
+    <link rel = "stylesheet" href = "/stylesheets/bootstrap.css">
+    <link rel = "stylesheet" href = "/stylesheets/common.css">
+    {{#if stylesheet}} <link rel = "stylesheet" href = "/stylesheets/{{stylesheet}}.css"> {{/if}}
+  </head>
+  <body>
+    <header>
+      <nav class = "navbar navbar-default">
+        <div class = "container-fluid">
+	  <div class = "navbar-header navbar-title">
+	    <a class = "navbar-brand" href="/">
+	      <strong style="font-size: 16pt;">Waffle</strong>  &nbsp;
+	    </a>
+		<img class = "waffle-logo" src="/images/others/waffle-logo.svg" style="width: 35px;">
+	  </div>
+	  <ul class="nav navbar-right navbar-nav">
+	    {{#if user}}
+	      <li>
+		<a href = "/create-message"> 
+		  <strong>Create Message</strong>
+		</a>
+	      </li>
+	      <li>
+		<a href = "/become-admin"> 
+		  <strong>Admin Login</strong>
+		</a>
+	      </li>
+	      <li>
+		<a href = "/logout"> 
+		  <span style = "color:#0275d8" class = "glyphicon glyphicon-log-out"></span> &nbsp;
+		  <strong>Log Out</strong>
+		</a>
+	      </li>
+	    {{else}}
+	      <li>
+		<a href = "/login">
+		  <span style = "color:#0275d8" class = "glyphicon glyphicon-log-in"></span> &nbsp;
+		  <strong>Log In</strong>
+		</a>
+	      </li>
+	      <li>
+		<a href = "/signup">
+		  <span style = "color:#0275d8" class = "glyphicon glyphicon-log-in"></span> &nbsp;
+		  <strong>Sign Up</strong>
+		</a>
+	      </li>
+	    {{/if}}
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class = "container-fluid">
+      <div class = "row">
+	<div class = "col-xs-1 col-sm-1 col-md-1"></div>
+	<div class = "col-xs-10 col-sm-10 col-md-10">
+	  <div class = "page-container">{{{body}}}</div>
+	 </div>
+	<div class = "col-xs-1 col-sm-1 col-md-1"></div>
+      </div>
+      <footer class = "row bottom-footer">
+	<div class = "col-xs-5 col-sm-5 col-md-5 user-container footer-username">
+	  {{#if user}}
+	    <span style = "color: #fad89f;" class = "glyphicon glyphicon-user"></span> &nbsp;
+	    <strong style = "color: white; margin-left: -4px">{{user.username}}</strong>
+	  {{/if}}
+	</div>
+	<div class = "col-xs-2 col-sm-2 col-md-2"> </div>
+      </footer>
+    </div>
+  </body>
+  <script src = "/javascripts/jquery.js"></script>
+  <script src = "/javascripts/bootstrap.js"></script>
+  {{#if javascript}} <script src = "/javascripts/{{javascript}}.js"></script> {{/if}}
+</html>

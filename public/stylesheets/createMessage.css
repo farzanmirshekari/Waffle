@@ -1,0 +1,23 @@
+@import url("/stylesheets/signupOrLogin.css");
+
+.image-container > img {
+  width:30%;
+}
+
+.form-container{
+  width:50%;
+  align-items: center !important;
+}
+
+.age-range {
+  display: flex;
+  flex-direction: row;
+}
+
+.ageInput {
+  width: 50%;
+}
+
+.submit-button {
+  margin-top: 20px;
+}
