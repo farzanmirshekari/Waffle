@@ -33,7 +33,7 @@ const fourOFourHandler = (req, res, next) => {
 const sessionConfig = {
   store: new MongoStore({ client: db.client }),
   saveUninitialized: false,
-  secret: (process.env.WaffleSessionKey),
+  secret: (process.env.mongoSessionKey),
   resave:false
 };
 

@@ -4,7 +4,7 @@ const db = require('./../models/db');
 const debug = require('debug')('Waffle:server');
 const http = require('http');
 
-const port = normalizePort('3000');
+const port = normalizePort('8080');
 let server = undefined;
 
 db.makeConnection().then(
