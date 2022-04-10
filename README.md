@@ -1,1 +1,4 @@
-Waffle is a Twitter-style social media web application that enables users to determine an age range for the recipients of their messages. The idea came to me when I was scrolling on Twitter one day and stumbled upon a rather explicit joke. I then wondered if Twitter had any policies in place for age-restricted materials. Their policies were rather non-inclusive and thus, I decided to make my own application and add said feature. Waffle was developed using Node.js and Express with a MongoDB database to track user data and message information. In order to encrypt and secure sensitive data, I incorporated Passport.js for authentication and Bcrypt for generating hashed passwords. The sensitive information regarding Waffle is secured in a dotenv file.
+<img src = 'https://github.com/farzanmirshekari/Waffle/blob/main/public/images/others/waffle-logo.svg' height = 100>
+<h1>Waffle</h1>
+
+Waffle is a social media platform, allowing users to specify an age range for their messages. An age-appropriate Reddit, anyone?
