@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bodyParser = require("body-parser")
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,7 @@ mongoose.connect(process.env.ATLAS_URL)
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require('./routes/routes_handler'));
 
 app.listen(port, () => {

@@ -1,6 +1,7 @@
 const User = require('../models/user_model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const moment = require('moment');
 const { create_token } = require('../utilities/token_creator');
 
 exports.sign_up = ( req, res ) => {
@@ -11,13 +12,13 @@ exports.sign_up = ( req, res ) => {
         .then(( user ) => {
             if ( user ) { return res.status(422).json( { errors: [{ user: "Username already taken."}] } ); }
             else {
-
+                
                 const user = new User({
 
                     name: name,
                     username: username,
                     password: password,
-                    birthdate: birthdate
+                    birthdate: birthdate,
 
                 })
 
