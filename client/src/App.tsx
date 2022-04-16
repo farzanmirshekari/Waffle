@@ -8,17 +8,18 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/Index/HomePage';
+import SignIn from './components/Authentication/SignIn';
 
 function App() {
   return (
     <div className="main_container">
 
-      <NavigationBar />
-
       <Router>
-        <Routes>
-          <Route path = '/' element = { <HomePage /> }/>
-        </Routes>
+        <NavigationBar />
+          <Routes>
+            <Route path = '/' element = { <HomePage /> }/>
+            <Route path = '/sign_in' element = { <SignIn /> }/>
+          </Routes>
       </Router>
       
 

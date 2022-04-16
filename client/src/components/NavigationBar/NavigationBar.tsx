@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import WaffleLogo from './../../assets/waffle_logo.svg';
 import navigation_bar_data from './navigation_bar_data';
 
@@ -13,7 +13,7 @@ function NavigationBar() {
             <ul className = 'flex flex-row ml-4 text-zinc-200 gap-4'>
             {
                 navigation_bar_data.map(( item ) => {
-                    return <li>{item.label}</li>
+                    return <li key={ item.index }><Link to = {item.path}>{item.label}</Link></li>
                 })
             }
             </ul>
