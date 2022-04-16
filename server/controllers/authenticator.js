@@ -2,11 +2,16 @@ const User = require('../models/user_model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
+const { validator } = require('../helpers/validator');
 const { create_token } = require('../utilities/token_creator');
 
 exports.sign_up = ( req, res ) => {
 
     const { name, username, password, birthdate } = req.body;
+
+    const validation_results = validator(name, username, password, birthdate);
+
+    if (validation_results.length > 0) { return res.status(422).json( { errors: validation_results } ); }
 
     User.findOne({ username: username })
         .then(( user ) => {
