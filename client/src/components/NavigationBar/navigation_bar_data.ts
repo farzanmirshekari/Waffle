@@ -1,3 +1,5 @@
+import authentication_verifier from "../../validators/authentication_verifier";
+
 const navigation_bar_data = [
 
     {
@@ -10,11 +12,23 @@ const navigation_bar_data = [
         index: 1,
         path: "/create_message"
     },
-    {
-        label: "Sign Up",
-        index: 2,
-        path: "/sign_up"
-    },
+    ...(
+        !authentication_verifier() ? (
+            [
+                {
+                    label: "Sign Up",
+                    index: 2,
+                    path: "/sign_up"
+                },
+                {
+                    label: "Sign In",
+                    index: 3,
+                    path: "/sign_in"
+                }
+            ]
+        ) :
+        []
+    )
 
 ]
 
