@@ -12,7 +12,7 @@ import SignIn from './components/Authentication/SignIn';
 
 function App() {
   return (
-    <div className="main_container">
+    <div className = 'main_container overflow-y-hidden'>
 
       <Router>
         <NavigationBar />

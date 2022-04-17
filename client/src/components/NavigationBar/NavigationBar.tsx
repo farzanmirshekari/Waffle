@@ -6,14 +6,14 @@ function NavigationBar() {
 
     return (
 
-        <div className = 'navigation_bar sticky z-10 w-full h-16 flex flex-row justify-start items-center'>
+        <div className = 'navigation_bar sticky z-10 w-full h-14 flex flex-row justify-start items-center'>
 
-            <img src = {WaffleLogo} className = 'h-10 ml-5' alt = 'Waffle Logo'/>
+            <h1 className = 'waffle_header text-white bold text-4xl ml-4 -mt-1'><p>waffle</p></h1>
 
-            <ul className = 'flex flex-row ml-4 text-zinc-200 gap-4'>
+            <ul className = 'relative flex flex-row w-full h-full ml-7 text-white text-lg gap-6 justify-start items-center'>
             {
                 navigation_bar_data.map(( item ) => {
-                    return <li key={ item.index }><Link to = {item.path}>{item.label}</Link></li>
+                    return <li className = 'navigation_bar_item' key={ item.index }><Link to = {item.path}>{item.label}</Link></li>
                 })
             }
             </ul>

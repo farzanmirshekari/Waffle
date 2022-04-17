@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+
+@font-face {
+    font-family: 'TW Cen MT';
+    src: local("TW Cen MT"),
+        url("./assets/TW Cen MT.TTF") format("truetype");
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

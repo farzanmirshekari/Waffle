@@ -28,6 +28,11 @@ function HomePage() {
 
         <div className = 'home_page absolute w-full h-full flex flex-col justify-start items-center'>
             <button onClick={get_messages}>HELLO</button>
+            <Message
+            title="Hello"
+            content="uahdyadawdawdadwd"
+            author=""
+            />
         </div>
 
     )

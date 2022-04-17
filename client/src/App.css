@@ -1,3 +1,11 @@
+.bold {
+    font-weight: bold;
+}
+
+.lighter {
+    font-weight: lighter;
+}
+
 .main_container {
     position: absolute;
     width: 100%;
@@ -5,11 +13,44 @@
 }
 
 .home_page {
-    background-color: #384045;
+    background-color: #23272A;
+}
+
+.sign_in_page {
+    background-color: #23272A;
+}
+
+.sign_in_container {
+    background-color: #7289da;
+    border-radius: 10px;
 }
 
 .navigation_bar {
-    background-color: #1c2124;
+    background-color: #16191c;
     position: sticky;
     top: 0;
+}
+
+.navigation_bar_item {
+    font-family: 'TW Cen MT';
+}
+
+.input_field { 
+    border-radius: 6px;
+}
+
+.input_field:focus {
+    background-color: white;
+    outline: none;
+}
+
+.waffle_header {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.message_container {
+    width: 40%;
+    min-height: 10vh;
+    height: auto;
+    max-height: 30vh;
 }
