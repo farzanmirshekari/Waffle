@@ -1,4 +1,5 @@
 const Message = require('../models/message_model');
+const jwt = require('jsonwebtoken');
 
 exports.create_message = ( req, res ) => {
 
@@ -34,11 +35,18 @@ exports.create_message = ( req, res ) => {
 
 exports.get_messages = ( req, res ) => {
 
-    Message.find(( error, messages ) => {
+    const { token } = req.body;
 
-        if ( !error ) res.json( { data: messages } )
-        else { res.status(500).json( { errors: error } ) }
-
+    jwt.verify(token, process.env.TOKEN_SECRET, ( error, decoded ) => {
+        if ( error ) { res.status(500).json( { errors: error } ); }
+        if ( decoded ) {
+            Message.find(( error, messages ) => {
+ 
+                if ( !error ) res.json( { data: messages } )
+                else { res.status(500).json( { errors: error } ) }
+        
+            })
+        }
     })
 
 }

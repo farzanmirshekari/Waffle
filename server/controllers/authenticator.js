@@ -67,7 +67,7 @@ exports.sign_in = ( req, res ) => {
 
                         if ( !is_match ) { return res.status(400).json( { errors: [{ password: "Incorrect" }] } ); }
 
-                        const access_token = create_token( user.username, user._id, 60 );
+                        const access_token = create_token( user.username, user._id, 3600 );
 
                         jwt.verify(access_token, process.env.TOKEN_SECRET, ( error, decoded ) => {
                             if ( error ) { res.status(500).json( { errors: error } ); }

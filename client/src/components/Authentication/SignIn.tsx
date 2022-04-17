@@ -34,7 +34,7 @@ function SignIn() {
     return (
 
         <div>
-            <form>
+            <div>
                 <InputField
                     type = 'text'
                     id = 'sign_in_username'
@@ -52,7 +52,7 @@ function SignIn() {
                     onChange = {handle_input_change}
                 />
                 <button onClick={attempt_sign_in}>Submit</button>
-            </form>
+            </div>
         </div>
 
     )
