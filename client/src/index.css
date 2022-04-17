@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Montserrat Alternates */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+
+/* Josefin Sans */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 
 @font-face {
     font-family: 'TW Cen MT';

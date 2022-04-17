@@ -37,6 +37,7 @@
 
 .input_field { 
     border-radius: 6px;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .input_field:focus {
@@ -53,4 +54,11 @@
     min-height: 10vh;
     height: auto;
     max-height: 30vh;
+}
+
+.auth_button {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #23272A;
+    width: 5.25em;
+    height: 2.75em;
 }

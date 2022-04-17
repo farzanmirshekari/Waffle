@@ -37,7 +37,7 @@ function SignIn() {
 
         <div className = 'sign_in_page relative w-full h-full overflow-y-hidden flex flex-row justify-center items-center'>
             <div className = 'sign_in_container relative w-4/6 h-4/6 flex flex-row justify-center items-center -translate-y-12'>
-                <div className = 'relative w-1/2 h-full justify-center items-center flex flex-col gap-6'>
+                <div className = 'relative w-1/2 h-full justify-center items-center flex flex-col mt-3'>
                     <InputField
                         type = 'text'
                         id = 'sign_in_username'
@@ -54,7 +54,7 @@ function SignIn() {
                         value = {credentials.password}
                         onChange = {handle_input_change}
                     />
-                    <button onClick={attempt_sign_in}>Submit</button>
+                    <button className = 'auth_button bold rounded-md text-white mt-4' onClick={attempt_sign_in}>Sign In</button>
                 </div>
                 <div className = 'relative w-1/2 h-full flex justify-center items-center'>
                     <img src = {AbstractArtwork} className = 'relative w-full h-full' style = {{ borderTopRightRadius: `${10}px`, borderBottomRightRadius: `${10}px` }} alt = 'Login Artwork'/>
