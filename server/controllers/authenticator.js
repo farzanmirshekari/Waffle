@@ -1,7 +1,6 @@
 const User = require('../models/user_model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const moment = require('moment');
 const { validator } = require('../helpers/validator');
 const { create_token } = require('../utilities/token_creator');
 
@@ -90,5 +89,18 @@ exports.sign_in = ( req, res ) => {
         .catch( (error) => {
             res.status(500).json( { errors: error } );
         } );
+
+}
+
+exports.token_validator = ( req, res ) => {
+
+    const { token } = req.body;
+
+    jwt.verify(token, process.env.TOKEN_SECRET, ( error, decoded ) => {
+        if ( error ) { res.status(500).json( { verified: false } ); }
+        if ( decoded ) {
+            res.status(200).json( { verified: true } )
+        }
+    })
 
 }

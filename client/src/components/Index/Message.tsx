@@ -8,7 +8,7 @@ function Message( { title, content, author } : Props ) {
 
     return (
 
-        <div>
+        <div className = 'relative w-1/2 h-1/6 bg-gray-900'>
             <div>
                 
             </div>

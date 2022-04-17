@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import authentication_verifier from "../../validators/authentication_verifier";
+import Message from "./Message";
 
 function HomePage() {
 
@@ -10,18 +11,23 @@ function HomePage() {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        if ( !authentication_verifier() ) { navigate('/sign_in'); }
+        const verify_authentication = async () => {
+            const authentication_verified = await authentication_verifier();
+            if ( !authentication_verified ) { navigate('/sign_in'); }
+        }
+        verify_authentication();
     }, [navigate])
 
     const get_messages = async () => {
-        const response = await axios.post('http://localhost:3001/get_messages', { token: localStorage.getItem('token') });
+        const token = localStorage.getItem('token');
+        const response = await axios.post('http://localhost:3001/get_messages', { token: token });
         setMessages(response.data);
     }
 
     return (
 
-        <div className = 'home_page absolute w-full h-full'>
-
+        <div className = 'home_page absolute w-full h-full flex flex-col justify-start items-center'>
+            <button onClick={get_messages}>HELLO</button>
         </div>
 
     )

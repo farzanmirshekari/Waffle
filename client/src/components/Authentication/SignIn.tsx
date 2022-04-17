@@ -28,6 +28,7 @@ function SignIn() {
     const attempt_sign_in = async () => {
         const response = await axios.post('http://localhost:3001/sign_in', credentials);
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('birthdate', response.data.message.birthdate);
         if ( response.data.success ) { navigate('/') }
     }
 
