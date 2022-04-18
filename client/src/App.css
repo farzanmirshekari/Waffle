@@ -51,7 +51,7 @@
 
 .message_container {
     width: 40%;
-    min-height: 10vh;
+    min-height: 25vh;
     height: auto;
     max-height: 30vh;
 }

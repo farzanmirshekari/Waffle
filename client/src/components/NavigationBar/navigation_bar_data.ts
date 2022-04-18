@@ -1,4 +1,4 @@
-import authentication_verifier from "../../validators/authentication_verifier";
+import authentication_verifier from "../validators/authentication_verifier";
 
 const navigation_bar_data = [
 

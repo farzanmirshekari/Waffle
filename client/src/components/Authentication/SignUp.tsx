@@ -31,10 +31,18 @@ function SignUp() {
     }
 
     const attempt_sign_up = async () => {
-        const response = await axios.post('http://localhost:3001/sign_up', credentials);
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('birthdate', response.data.message.birthdate);
-        if ( response.data.success ) { navigate('/') }
+        const sign_up_response = await axios.post('http://localhost:3001/sign_up', credentials);
+        if ( sign_up_response.data.success ) { 
+            const sign_in_response = await axios.post('http://localhost:3001/sign_in', {
+                username: credentials.username,
+                password: credentials.password
+            })
+            if ( sign_in_response.data.success ) {
+                localStorage.setItem('token', sign_in_response.data.token);
+                localStorage.setItem('birthdate', sign_in_response.data.message.birthdate);
+                navigate('/');
+            }
+         }
     }
 
     return (
@@ -42,7 +50,7 @@ function SignUp() {
         <div className = 'sign_in_page relative w-full h-full overflow-y-hidden flex flex-row justify-center items-center'>
             <div className = 'sign_in_container relative w-4/6 h-4/6 flex flex-row justify-center items-center -translate-y-12'>
                 <div className = 'relative w-1/2 h-full justify-center items-center flex flex-col'>
-                    <div className = 'relative w-8/12 h-full flex flex-col justify-center items-left translate-y-1'>
+                    <div className = 'relative w-8/12 h-full flex flex-col justify-center items-left -translate-y-3'>
                         <div className = 'auth_greetings relative w-full h-1/6 flex flex-col justify-start items-left translate-y-2'>
                             <span className = 'bold text-4xl'>Welcome!</span>
                             <p className = 'text-2xl mt-1'>So glad you are here..</p>
