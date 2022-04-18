@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import authentication_verifier from "../../validators/authentication_verifier";
+import authentication_verifier from "../validators/authentication_verifier";
 import Message from "./Message";
 
 function HomePage() {

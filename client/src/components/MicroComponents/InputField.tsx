@@ -24,7 +24,7 @@ function InputField( { label, value, type, name, id, onChange } : Props ) {
                 placeholder = {label}
                 name = {name}
                 onChange = {onChange}
-                className = 'input_field bold relative w-8/12 h-10 pl-2.5 pr-2.5 mb-5'
+                className = 'input_field bold relative w-full h-10 pl-2.5 pr-2.5 mb-5'
             />
         </label>
     )
