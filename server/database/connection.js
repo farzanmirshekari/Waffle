@@ -4,7 +4,7 @@ const database_connection_string = process.env.ATLAS_URL;
 
 const client = new MongoClient(database_connection_string);
 
-let _db;
+let _database;
 
 module.exports = {
     
@@ -12,7 +12,7 @@ module.exports = {
         client.connect(( error, database ) => {
 
             if (database) {
-                _db = database.db('waffle_database');
+                _database = database.db('waffle_database');
                 console.log('Connection successful!');
             }
             return callback(error);
@@ -20,7 +20,7 @@ module.exports = {
     },
 
     get_database: () => {
-        return _db;
+        return _database;
     }
 
 }
