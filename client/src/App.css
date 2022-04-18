@@ -56,9 +56,29 @@
     max-height: 30vh;
 }
 
+.auth_greetings {
+    font-size: 10pt;
+    gap: 2px;
+}
+
+.auth_greetings span { 
+    font-family: 'Pacifico', cursive;
+}
+
+.auth_greetings span p {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.auth_greetings p {
+    font-family: 'Caveat', cursive;
+}
+
+.auth_greetings h5 {
+    font-family: 'Press Start 2P', cursive;
+}
+
 .auth_button {
     font-family: 'Josefin Sans', sans-serif;
     background-color: #23272A;
-    width: 5.25em;
     height: 2.75em;
 }

@@ -8,6 +8,15 @@
 /* Josefin Sans */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 
+/* Pacifico */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Caveat */
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+/* Press Start 2P */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 @font-face {
     font-family: 'TW Cen MT';
     src: local("TW Cen MT"),

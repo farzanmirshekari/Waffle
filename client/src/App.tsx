@@ -9,6 +9,7 @@ import {
 import './App.css';
 import HomePage from './components/Index/HomePage';
 import SignIn from './components/Authentication/SignIn';
+import SignUp from './components/Authentication/SignUp';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path = '/' element = { <HomePage /> }/>
             <Route path = '/sign_in' element = { <SignIn /> }/>
+            <Route path = '/sign_up' element = { <SignUp /> }/>
           </Routes>
       </Router>
       
