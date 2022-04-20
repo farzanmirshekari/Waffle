@@ -6,9 +6,9 @@ const { create_token } = require('../utilities/token_creator');
 
 exports.sign_up = ( req, res ) => {
 
-    const { name, username, password, birthdate } = req.body;
+    const { name, username, password, birthdate, profile_photo } = req.body;
 
-    const validation_results = validator(name, username, password, birthdate);
+    const validation_results = validator(name, username, password, birthdate, profile_photo);
 
     if (validation_results.length > 0) { return res.status(422).json( { errors: validation_results } ); }
 
@@ -23,6 +23,7 @@ exports.sign_up = ( req, res ) => {
                     username: username,
                     password: password,
                     birthdate: birthdate,
+                    profile_photo: profile_photo
 
                 })
 

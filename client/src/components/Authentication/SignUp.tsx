@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../../firebase";
 import InputField from "../MicroComponents/InputField";
 import AbstractArtwork from '../../assets/abstract_face_artwork.jpg';
 
@@ -8,18 +10,22 @@ function SignUp() {
 
     const navigate = useNavigate();
 
+    const [profilePhoto, setProfilePhoto] = useState<File>(null);
+
     interface SignUpCredentials {
         name: string,
         birthdate: string,
         username: string,
-        password: string
+        password: string,
+        profile_photo: string;
     }
 
     const [ credentials, setCredentials ] = useState<SignUpCredentials>({
         name: '',
         birthdate: '',
         username: '',
-        password: ''
+        password: '',
+        profile_photo: ''
     })
 
     const handle_input_change = ( e : React.ChangeEvent<HTMLInputElement> ) => {
@@ -30,7 +36,20 @@ function SignUp() {
         }));
     }
 
+    const handle_profile_photo_upload = () => {
+        const file_name = (new Date()).toISOString() + profilePhoto.name;
+        const storage_ref = ref(storage, `/profile_photos/${file_name}`);
+        uploadBytes(storage_ref, profilePhoto).then( async ( snapshot ) => {
+            const download_url = await getDownloadURL(snapshot.ref);
+            setCredentials((prev_state) => ({
+                ...prev_state,
+                profile_photo: download_url
+            }))
+        })
+    }
+
     const attempt_sign_up = async () => {
+        handle_profile_photo_upload();
         const sign_up_response = await axios.post('http://localhost:3001/sign_up', credentials);
         if ( sign_up_response.data.success ) { 
             const sign_in_response = await axios.post('http://localhost:3001/sign_in', {
@@ -88,6 +107,10 @@ function SignUp() {
                             name = 'password'
                             value = {credentials.password}
                             onChange = {handle_input_change}
+                        />
+                        <input
+                            type = 'file'
+                            onChange = {( e : React.ChangeEvent<HTMLInputElement> ) => { setProfilePhoto(e.target.files[0]); }}
                         />
                         <button className = 'auth_button w-full bold rounded-md text-white' onClick={attempt_sign_up}>Sign Up</button>
                     </div>
