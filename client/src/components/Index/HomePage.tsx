@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import authentication_verifier from "../validators/authentication_verifier";
-import Message from "./Message";
+import Message from "../Messaging/Message";
 
 function HomePage() {
 
@@ -12,8 +12,12 @@ function HomePage() {
 
     useEffect(() => {
         const verify_authentication = async () => {
-            const authentication_verified = await authentication_verifier();
-            if ( !authentication_verified ) { navigate('/sign_in'); }
+            try {
+                const authentication_verified = await authentication_verifier();
+                if ( !authentication_verified ) { navigate('/sign_in'); }
+            } catch ( error ) {
+                navigate('/sign_in');
+            }
         }
         verify_authentication();
     }, [navigate])
@@ -29,13 +33,14 @@ function HomePage() {
 
     return (
 
-        <div className = 'home_page absolute w-full h-full flex flex-col justify-start items-center'>
+        <div className = 'full_page absolute w-full h-full flex flex-col justify-start items-center'>
             <div className = 'relative w-full h-full flex flex-col justify-start items-center mt-8'>
                 {
                     messages.length > 0 && (
-                        messages.map((message) => {
+                        messages.map((message, index) => {
                             return (
                                 <Message 
+                                    key = {index}
                                     author = {message.author.name}
                                     author_image = {message.author.profile_photo}
                                     content = {message.content}

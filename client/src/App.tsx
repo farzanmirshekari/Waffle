@@ -10,6 +10,7 @@ import './App.css';
 import HomePage from './components/Index/HomePage';
 import SignIn from './components/Authentication/SignIn';
 import SignUp from './components/Authentication/SignUp';
+import CreateMessage from './components/Messaging/CreateMessage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <NavigationBar />
           <Routes>
             <Route path = '/' element = { <HomePage /> }/>
+            <Route path = '/create_message' element = { <CreateMessage /> }/>
             <Route path = '/sign_in' element = { <SignIn /> }/>
             <Route path = '/sign_up' element = { <SignUp /> }/>
           </Routes>

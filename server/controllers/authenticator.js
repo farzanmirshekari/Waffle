@@ -98,7 +98,7 @@ exports.token_validator = ( req, res ) => {
     const { token } = req.body;
 
     jwt.verify(token, process.env.TOKEN_SECRET, ( error, decoded ) => {
-        if ( error ) { res.status(500).json( { verified: false } ); }
+        if ( error ) { res.json( { verified: false } ); }
         if ( decoded ) {
             res.status(200).json( { verified: true } )
         }

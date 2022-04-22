@@ -20,7 +20,6 @@ exports.create_message = ( req, res ) => {
             })
             _message.save()
                 .then(( response ) => {
-                    console.log(response);
                     res.status(200).json({
 
                         success: true,
@@ -43,10 +42,8 @@ exports.get_messages = ( req, res ) => {
     jwt.verify(token, process.env.TOKEN_SECRET, ( error, decoded ) => {
         if ( error ) { res.status(500).json( { errors: error } ); }
         if ( decoded ) {         
-            console.log(decoded);
             User.findOne({ username: decoded.username })
                 .then(( user ) => {
-                    console.log(user);
                     const user_age = age_calculator(user.birthdate);
                     Message.find( { min_age: {$lte: user_age}, max_age: {$gte: user_age} }, ( error, messages ) => {
  
