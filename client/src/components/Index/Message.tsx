@@ -1,19 +1,24 @@
 interface Props {
+    author: string;
+    author_image: string;
     title: string;
     content: string;
-    author: string;
 }
 
-function Message( { title, content, author } : Props ) {
+function Message( { author, author_image, title, content } : Props ) {
 
     return (
 
-        <div className = 'message_container relative bg-gray-900'>
-            <div className = 'relative w-full h-1/3 flex justify-start items-center bg-teal-400'>
-                {title}
+        <div className = 'message_container relative flex flex-col justify-start items-center px-2 pb-1 pt-3'>
+            <div className = 'message_item relative w-full h-auto flex flex-row justify-start items-center'>
+                <img src = {author_image} alt = 'Author' className = 'relative w-14 rounded-full ml-2'/>
+                <p className = 'text-base text-justify ml-2'>{author}</p>
             </div>
-            <div className = 'relative w-full h-2/3 flex justify-start items-center bg-amber-300'>
-                {content}
+            <div className = 'message_item relative w-full h-auto flex justify-start items-center'>
+                <p className = 'text-lg text-justify ml-4 mr-4 bold'>{title}</p>
+            </div>
+            <div className = 'message_item relative w-full h-auto flex justify-start items-start'>
+                <p className = 'ml-4 text-justify mr-4'>{content}</p>
             </div>
         </div>
 

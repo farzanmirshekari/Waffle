@@ -50,10 +50,25 @@
 }
 
 .message_container {
-    width: 40%;
-    min-height: 25vh;
+    width: 35%;
+    min-height: 20vh;
     height: auto;
     max-height: 30vh;
+    background-color: #7289da;
+    border-radius: 10px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.message_container .message_item:nth-child(1) {
+    min-height: 7vh;
+}
+
+.message_container .message_item:nth-child(2) {
+    min-height: 4vh;
+}
+
+.message_container .message_item:nth-child(3) {
+    min-height: 9vh;
 }
 
 .auth_greetings {

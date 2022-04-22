@@ -18,21 +18,34 @@ function HomePage() {
         verify_authentication();
     }, [navigate])
 
-    const get_messages = async () => {
-        const token = localStorage.getItem('token');
-        const response = await axios.post('http://localhost:3001/get_messages', { token: token });
-        setMessages(response.data);
-    }
+    useEffect(() => {
+        const get_messages = async () => {
+            const token = localStorage.getItem('token');
+            const response = await axios.post('http://localhost:3001/get_messages', { token: token });
+            setMessages(response.data.data);
+        }
+        get_messages()
+    }, [])
 
     return (
 
         <div className = 'home_page absolute w-full h-full flex flex-col justify-start items-center'>
-            <button onClick={get_messages}>HELLO</button>
-            <Message
-            title="Hello"
-            content="uahdyadawdawdadwd"
-            author=""
-            />
+            <div className = 'relative w-full h-full flex flex-col justify-start items-center mt-8'>
+                {
+                    messages.length > 0 && (
+                        messages.map((message) => {
+                            return (
+                                <Message 
+                                    author = {message.author.name}
+                                    author_image = {message.author.profile_photo}
+                                    content = {message.content}
+                                    title = {message.title}
+                                />
+                            )
+                        })
+                    )
+                }
+            </div>
         </div>
 
     )

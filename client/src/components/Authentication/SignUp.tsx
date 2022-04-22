@@ -36,21 +36,29 @@ function SignUp() {
         }));
     }
 
-    const handle_profile_photo_upload = () => {
+    const handle_profile_photo_upload = async () => {
         const file_name = (new Date()).toISOString() + profilePhoto.name;
         const storage_ref = ref(storage, `/profile_photos/${file_name}`);
-        uploadBytes(storage_ref, profilePhoto).then( async ( snapshot ) => {
-            const download_url = await getDownloadURL(snapshot.ref);
-            setCredentials((prev_state) => ({
-                ...prev_state,
-                profile_photo: download_url
-            }))
-        })
+        let download_url =  uploadBytes(storage_ref, profilePhoto).then( async ( snapshot ) => {
+                                download_url = await getDownloadURL(snapshot.ref);
+                                setCredentials((prev_state) => ({
+                                    ...prev_state,
+                                    profile_photo: download_url
+                                }))
+                                return download_url;
+                            })
+        return download_url;
     }
 
     const attempt_sign_up = async () => {
-        handle_profile_photo_upload();
-        const sign_up_response = await axios.post('http://localhost:3001/sign_up', credentials);
+        const uploaded_profile_photo_url = await handle_profile_photo_upload()
+        const sign_up_response = await axios.post('http://localhost:3001/sign_up', {
+            name: credentials.name,
+            username: credentials.username,
+            password: credentials.password,
+            birthdate: credentials.birthdate,
+            profile_photo: uploaded_profile_photo_url
+        });
         if ( sign_up_response.data.success ) { 
             const sign_in_response = await axios.post('http://localhost:3001/sign_in', {
                 username: credentials.username,
