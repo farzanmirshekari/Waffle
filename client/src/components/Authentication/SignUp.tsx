@@ -77,7 +77,7 @@ function SignUp() {
         <div className = 'sign_in_page relative w-full h-full overflow-y-hidden flex flex-row justify-center items-center'>
             <div className = 'sign_in_container relative w-4/6 h-4/6 flex flex-row justify-center items-center -translate-y-12'>
                 <div className = 'relative w-1/2 h-full justify-center items-center flex flex-col'>
-                    <div className = 'relative w-8/12 h-full flex flex-col justify-center items-left -translate-y-3'>
+                    <div className = 'relative w-8/12 h-full flex flex-col justify-center items-left'>
                         <div className = 'auth_greetings relative w-full h-1/6 flex flex-col justify-start items-left translate-y-2'>
                             <span className = 'bold text-4xl'>Welcome!</span>
                             <p className = 'text-2xl mt-1'>So glad you are here..</p>
@@ -100,27 +100,40 @@ function SignUp() {
                                 onChange = {handle_input_change}
                             />
                         </div>
-                        <InputField
-                            type = 'text'
-                            id = 'sign_up_username'
-                            label = 'Username'
-                            name = 'username'
-                            value = {credentials.username}
-                            onChange = {handle_input_change}
-                        />
-                        <InputField
-                            type = 'password'
-                            id = 'sign_up_password'
-                            label = 'Password'
-                            name = 'password'
-                            value = {credentials.password}
-                            onChange = {handle_input_change}
-                        />
-                        <input
-                            type = 'file'
-                            onChange = {( e : React.ChangeEvent<HTMLInputElement> ) => { setProfilePhoto(e.target.files[0]); }}
-                        />
-                        <button className = 'auth_button w-full bold rounded-md text-white' onClick={attempt_sign_up}>Sign Up</button>
+                        <div className = 'relative w-full flex flex-row justify-start gap-4'>
+                            <div className = 'relative w-9/12 h-full justify-start items-center'>
+                                <InputField
+                                    type = 'text'
+                                    id = 'sign_up_username'
+                                    label = 'Username'
+                                    name = 'username'
+                                    value = {credentials.username}
+                                    onChange = {handle_input_change}
+                                />
+                                <InputField
+                                    type = 'password'
+                                    id = 'sign_up_password'
+                                    label = 'Password'
+                                    name = 'password'
+                                    value = {credentials.password}
+                                    onChange = {handle_input_change}
+                                />
+                            </div>
+                            <div className = 'relative w-5/12 h-full flex flex-col justify-center items-center'>
+                                <div className = 'relative w-full h-auto -mt-1'>
+                                    <p className = 'relative input_field_label w-full h-auto translate-y-3'>Profile Photo</p>
+                                    <label className = 'file_upload_container flex justify-center items-center relative overflow-hidden rounded-md mt-4 bg-white p-2 -translate-y-1'>
+                                        <p>Upload Image</p>
+                                        <input
+                                            className = 'absolute block cursor-pointer opacity-0 min-w-full min-h-full top-0 right-0 text-left text-9xl'
+                                            type = 'file'
+                                            onChange = {( e : React.ChangeEvent<HTMLInputElement> ) => { setProfilePhoto(e.target.files[0]); }}
+                                        />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button className = 'auth_button w-full bold rounded-md text-white mt-5' onClick={attempt_sign_up}>Sign Up</button>
                     </div>
                 </div>
                 <div className = 'relative w-1/2 h-full flex justify-center items-center'>

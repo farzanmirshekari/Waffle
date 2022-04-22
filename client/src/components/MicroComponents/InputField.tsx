@@ -16,7 +16,10 @@ function InputField( { label, value, type, name, id, onChange } : Props ) {
     }
 
     return (
-        <label htmlFor={id} className = 'relative w-full flex justify-center items-center'>
+        <label htmlFor={id} className = 'relative w-full flex flex-col justify-start items-center'>
+            <label className = 'input_field_label relative w-full ml-1'>
+                {label}
+            </label>
             <input 
                 type = {type}
                 id = {id}
@@ -24,7 +27,7 @@ function InputField( { label, value, type, name, id, onChange } : Props ) {
                 placeholder = {label}
                 name = {name}
                 onChange = {onChange}
-                className = 'input_field bold relative w-full h-10 pl-2.5 pr-2.5 mb-5'
+                className = 'input_field bold relative w-full h-10 pl-2.5 pr-2.5 mb-2'
             />
         </label>
     )

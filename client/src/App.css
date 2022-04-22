@@ -45,6 +45,11 @@
     outline: none;
 }
 
+.input_field_label {
+    font-family: 'TW Cen MT';
+    font-size: 13pt;
+}
+
 .waffle_header {
     font-family: 'Montserrat Alternates', sans-serif;
 }

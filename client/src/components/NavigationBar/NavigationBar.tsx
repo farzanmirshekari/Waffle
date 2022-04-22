@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import WaffleLogo from './../../assets/waffle_logo.svg';
 import navigation_bar_data from './navigation_bar_data';
 
 function NavigationBar() {
@@ -8,7 +7,9 @@ function NavigationBar() {
 
         <div className = 'navigation_bar sticky z-10 w-full h-14 flex flex-row justify-start items-center'>
 
-            <h1 className = 'waffle_header text-white bold text-4xl ml-4 -mt-1'><p>waffle</p></h1>
+            <Link to = '/'>
+                <h1 className = 'waffle_header text-white bold text-4xl ml-4 -mt-1'><p>waffle</p></h1>
+            </Link>
 
             <ul className = 'relative flex flex-row w-full h-full ml-7 text-white text-lg gap-6 justify-start items-center'>
             {
