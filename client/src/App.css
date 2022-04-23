@@ -34,12 +34,16 @@
 
 .navigation_bar {
     background-color: #16191c;
-    position: sticky;
     top: 0;
 }
 
 .navigation_bar_item {
     font-family: 'TW Cen MT';
+}
+
+.bottom_bar {
+    background-color: #16191c;
+    bottom: 0;
 }
 
 .input_field { 

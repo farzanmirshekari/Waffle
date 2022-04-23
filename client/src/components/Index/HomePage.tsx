@@ -41,7 +41,7 @@ function HomePage() {
                             return (
                                 <Message 
                                     key = {index}
-                                    author = {message.author.name}
+                                    author = {message.author.username}
                                     author_image = {message.author.profile_photo}
                                     content = {message.content}
                                     title = {message.title}

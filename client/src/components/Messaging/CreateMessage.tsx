@@ -78,7 +78,7 @@ function CreateMessage() {
                                 onChange = {handle_input_change}
                             />
                             <div className = 'relative w-full h-auto flex flex-col justify-center items-center -mt-3'>
-                                <p className = 'relative input_field_label w-full h-auto ml-1'>Profile Photo</p>
+                                <p className = 'relative input_field_label w-full h-auto ml-1'>Content</p>
                                 <textarea
                                     id = 'message_content'
                                     className = 'input_field w-full flex justify-center items-center resize-none bold pl-2.5 pr-2.5 pt-1.5'
@@ -114,7 +114,7 @@ function CreateMessage() {
                                 />
                             </div>                   
                         </div>
-                        <button className = 'auth_button w-full bold rounded-md text-white mt-2' onClick={attempt_create_message}>Sign Up</button>
+                        <button className = 'auth_button w-full bold rounded-md text-white mt-2' onClick={attempt_create_message}>Publish</button>
                     </div>
                 </div>
                 <div className = 'relative w-1/2 h-full flex justify-center items-center'>
