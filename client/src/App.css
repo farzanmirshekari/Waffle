@@ -16,18 +16,20 @@
     background-color: #23272A;
 }
 
-.sign_in_page {
+.authentication_page {
     background-color: #23272A;
 }
 
-.sign_in_container {
+.authentication_container {
     background-color: #7289da;
     border-radius: 10px;
+    animation: grow_from_center 1s;
 }
 
 .message_creation_container {
     background-color: #7289da;
     border-radius: 10px;
+    animation: grow_from_center 1s;
 }
 
 .navigation_bar {
@@ -61,7 +63,6 @@
 
 .message_container {
     width: 35%;
-    min-height: 20vh;
     height: auto;
     max-height: 30vh;
     background-color: #7289da;
@@ -79,7 +80,7 @@
 }
 
 .message_container .message_item:nth-child(3) {
-    min-height: 9vh;
+    min-height: 2vh;
 }
 
 .auth_greetings {
@@ -113,6 +114,15 @@
         transform: translateY(100vh);
     }
     to {
-        transform: translateY(0vh)
+        transform: translateY(0vh);
+    }
+}
+
+@keyframes grow_from_center {
+    from {
+        transform: scale(0) translateY(-3rem);
+    }
+    to {
+        transform: scale(1) translateY(-3rem);
     }
 }

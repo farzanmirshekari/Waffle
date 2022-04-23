@@ -37,8 +37,8 @@ function SignIn() {
 
     return (
 
-        <div className = 'sign_in_page relative w-full h-full overflow-y-hidden flex flex-row justify-center items-center'>
-            <div className = 'sign_in_container relative w-4/6 h-4/6 flex flex-row justify-center items-center -translate-y-12'>
+        <div className = 'authentication_page relative w-full h-full overflow-y-hidden flex flex-row justify-center items-center'>
+            <div className = 'authentication_container relative w-4/6 h-4/6 flex flex-row justify-center items-center -translate-y-12'>
                 <div className = 'relative w-1/2 h-full justify-center items-center flex flex-col'>
                     <div className = 'relative w-8/12 h-full flex flex-col justify-center items-left translate-y-3'>
                         <div className = 'auth_greetings relative w-full h-1/6 flex flex-col justify-start items-left translate-y-2'>

@@ -8,8 +8,6 @@ function HomePage() {
 
     const navigate = useNavigate();
 
-    const [messages, setMessages] = useState([]);
-
     useEffect(() => {
         const verify_authentication = async () => {
             try {
@@ -21,6 +19,8 @@ function HomePage() {
         }
         verify_authentication();
     }, [navigate])
+
+    const [messages, setMessages] = useState([]);
 
     useEffect(() => {
         const get_messages = async () => {
