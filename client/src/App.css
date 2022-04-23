@@ -25,6 +25,11 @@
     border-radius: 10px;
 }
 
+.message_creation_container {
+    background-color: #7289da;
+    border-radius: 10px;
+}
+
 .navigation_bar {
     background-color: #16191c;
     position: sticky;
