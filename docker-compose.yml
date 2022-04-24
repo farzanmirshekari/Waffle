@@ -1,0 +1,37 @@
+version: '3.5'
+
+services:
+  server:
+    build: ./server
+    volumes:
+      - ./server:/usr/src/app
+    command: npm run start
+    env_file:
+      - .env
+    environment:
+      - SERVER_PORT=${SERVER_PORT}
+      - ATLAS_URL=${ATLAS_URL}
+      - TOKEN_SECRET=${TOKEN_SECRET}
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+  
+  client:
+    build: ./client
+    volumes:
+      - ./client:/app
+    command: npm run start
+    env_file:
+      - .env
+    environment:
+      - REACT_APP_FIREBASE_BUCKET_PATH=${REACT_APP_FIREBASE_BUCKET_PATH}
+      - REACT_APP_FIREBASE_API_KEY=${REACT_APP_FIREBASE_API_KEY}
+      - REACT_APP_FIREBASE_AUTH_DOMAIN=${REACT_APP_FIREBASE_AUTH_DOMAIN}
+      - REACT_APP_FIREBASE_PROJECT_ID=${REACT_APP_FIREBASE_PROJECT_ID}
+      - REACT_APP_FIREBASE_STORAGE_BUCKET=${REACT_APP_FIREBASE_STORAGE_BUCKET}
+      - REACT_APP_FIREBASE_MESSAGING_SENDER_ID=${REACT_APP_FIREBASE_MESSAGING_SENDER_ID}
+      - REACT_APP_FIREBASE_APP_ID=${REACT_APP_FIREBASE_APP_ID}
+      - REACT_APP_FIREBASE_MEASUREMENT_ID=${REACT_APP_FIREBASE_MEASUREMENT_ID}
+      - CLIENT_PORT=${CLIENT_PORT}
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    stdin_open: true

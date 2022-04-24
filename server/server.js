@@ -2,13 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require("body-parser")
-require('dotenv').config();
 
 const app = express();
 
 const database_connection = require('./database/connection');
 
-const port = process.env.PORT || 3001;
+const port = process.env.SERVER_PORT || 3001;
 
 mongoose.connect(process.env.ATLAS_URL)
     .then(() => {
