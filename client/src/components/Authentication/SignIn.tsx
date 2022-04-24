@@ -30,7 +30,8 @@ function SignIn() {
         const response = await axios.post('http://localhost:3001/sign_in', credentials);
         if ( response.data.success ) { 
             localStorage.setItem('token', response.data.token);
-            localStorage.setItem('birthdate', response.data.message.birthdate);
+            localStorage.setItem('username', response.data.message.username);
+            localStorage.setItem('profile_photo', response.data.message.profile_photo)
             navigate('/') 
         }
     }

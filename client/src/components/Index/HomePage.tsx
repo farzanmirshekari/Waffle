@@ -12,7 +12,7 @@ function HomePage() {
         const verify_authentication = async () => {
             try {
                 const authentication_verified = await authentication_verifier();
-                if ( !authentication_verified ) { navigate('/sign_in'); }
+                if ( !authentication_verified.verified ) { navigate('/sign_in'); }
             } catch ( error ) {
                 navigate('/sign_in');
             }

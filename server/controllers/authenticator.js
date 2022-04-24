@@ -100,7 +100,10 @@ exports.token_validator = ( req, res ) => {
     jwt.verify(token, process.env.TOKEN_SECRET, ( error, decoded ) => {
         if ( error ) { res.json( { verified: false } ); }
         if ( decoded ) {
-            res.status(200).json( { verified: true } )
+            User.findOne({ username: decoded.username })
+                .then(( user ) => {
+                    res.status(200).json( { verified: true, user: user } )
+                })
         }
     })
 

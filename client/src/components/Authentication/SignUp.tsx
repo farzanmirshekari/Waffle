@@ -66,7 +66,8 @@ function SignUp() {
             })
             if ( sign_in_response.data.success ) {
                 localStorage.setItem('token', sign_in_response.data.token);
-                localStorage.setItem('birthdate', sign_in_response.data.message.birthdate);
+                localStorage.setItem('username', sign_in_response.data.message.username);
+                localStorage.setItem('profile_photo', sign_in_response.data.message.profile_photo)
                 navigate('/');
             }
          }
