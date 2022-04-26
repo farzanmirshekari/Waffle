@@ -33,8 +33,8 @@ function HomePage() {
 
     return (
 
-        <div className = 'full_page absolute w-full h-full flex flex-col justify-start items-center'>
-            <div className = 'relative w-full h-full flex flex-col justify-start items-center mt-8'>
+        <div className = 'full_page overflow-y-auto absolute w-full h-full flex flex-col justify-start items-center'>
+            <div className = 'relative w-full h-auto flex flex-col justify-start items-center mt-8 mb-1'>
                 {
                     messages.length > 0 && (
                         messages.map((message, index) => {
