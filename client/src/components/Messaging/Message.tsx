@@ -1,11 +1,12 @@
 interface Props {
+    _id: string;
     author: string;
     author_image: string;
     title: string;
     content: string;
 }
 
-function Message( { author, author_image, title, content } : Props ) {
+function Message( { _id, author, author_image, title, content } : Props ) {
 
     return (
 

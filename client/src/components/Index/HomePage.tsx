@@ -40,6 +40,7 @@ function HomePage() {
                         messages.map((message, index) => {
                             return (
                                 <Message 
+                                    _id = {message._id}
                                     key = {index}
                                     author = {message.author.username}
                                     author_image = {message.author.profile_photo}
