@@ -32,15 +32,13 @@ function BottomBar() {
         verify_authentication();
     }, [navigate])
 
-    console.log(userNameAndPhoto);
-
     return (
 
         <div className = 'bottom_bar absolute z-1 h-14 w-full justify-start items-center'>
             {
                 userNameAndPhoto.username && userNameAndPhoto.profile_photo && localStorage.getItem('token') && (
                     <div className = 'relative w-1/3 h-full flex flex-row justify-start items-center'>
-                        <img src = {userNameAndPhoto.profile_photo} alt = 'User' className = 'relative w-12 h-12 rounded-full ml-2 object-cover' />
+                        <img src = {userNameAndPhoto.profile_photo} alt = 'User' className = 'relative w-10 h-10 rounded-full ml-3 object-cover' />
                         <p className = 'text-base text-justify text-white ml-2 tracking-wide' style = {{ fontFamily: 'Josefin Sans' }}>{userNameAndPhoto.username}</p>
                     </div>
                )

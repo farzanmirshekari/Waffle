@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { sign_up, sign_in, token_validator } = require('../controllers/authenticator');
-const { create_message, get_messages } = require('../controllers/messenger');
+const { create_message, get_messages, delete_message } = require('../controllers/messenger');
 
 const router = express.Router();
 
@@ -16,5 +16,7 @@ router.route('/validate_token').post(token_validator);
 
 router.route('/create_message').post(create_message);
 router.route('/get_messages').post(get_messages);
+
+router.route('/delete_message').post(delete_message);
 
 module.exports = router;

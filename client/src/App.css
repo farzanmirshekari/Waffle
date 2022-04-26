@@ -12,6 +12,11 @@
     height: 100%;
 }
 
+.create_message_page {
+    background-color: #23272A;
+    width: 100%;
+}
+
 .full_page {
     background-color: #23272A;
     height: calc(100% - 7rem);
@@ -86,6 +91,10 @@
 
 .message_container .message_item:nth-child(3) {
     min-height: 2vh;
+}
+
+.message_delete_button:hover {
+    transform: scale(1.1);
 }
 
 .auth_greetings {

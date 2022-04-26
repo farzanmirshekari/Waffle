@@ -46,21 +46,19 @@ function CreateMessage() {
     }
 
     const attempt_create_message = async () => {
-        const create_message_response = await axios.post('http://localhost:3001/create_message', {
+        await axios.post('http://localhost:3001/create_message', {
             token: localStorage.getItem('token'),
             title: messageContents.title,
             content: messageContents.content,
             min_age: messageContents.min_age,
             max_age: messageContents.max_age
         })
-        console.log(create_message_response);
     }
 
-    console.log(messageContents);
 
     return (
 
-        <div className = 'full_page absolute w-full h-full flex flex-col justify-center items-center'>
+        <div className = 'create_message_page absolute w-full h-full flex flex-col justify-center items-center'>
             <div className = 'message_creation_container relative w-4/6 h-4/6 flex flex-row justify-center items-center -translate-y-12'>
                 <div className = 'relative w-1/2 h-full justify-center items-center flex flex-col'>
                     <div className = 'relative w-8/12 h-full flex flex-col justify-center items-left -translate-y-1'>

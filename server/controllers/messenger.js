@@ -67,3 +67,19 @@ exports.get_messages = ( req, res ) => {
     })
 
 }
+
+exports.delete_message = ( req, res ) => {
+
+    const { _id } = req.body;
+
+    Message.deleteOne({ _id: _id })
+        .then(( result ) => {
+            res.status(200).json({ result: result });
+        })
+        .catch(( error ) => {
+            res.status(500).json({
+                errors: [{ error: error }]
+            })
+        })
+
+}
